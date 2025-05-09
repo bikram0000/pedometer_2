@@ -36,11 +36,7 @@ fun getSteps(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding, startTime
         return
     }
 
-    Log.d(TAG, "ActivityCompat: ${ActivityCompat.checkSelfPermission(context, Manifest.permission.ACTIVITY_RECOGNITION)}")
-    if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACTIVITY_RECOGNITION) != PackageManager.PERMISSION_GRANTED) {
-        result.error("2", "Permissions have not been requested", Exception())
-        return
-    }
+
     Log.d(TAG, "localRecordingClient:")
     localRecordingClient.subscribe(LocalDataType.TYPE_STEP_COUNT_DELTA)
             // Continue with Recording API functions
